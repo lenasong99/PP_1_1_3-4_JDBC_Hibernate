@@ -17,8 +17,6 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         String sql = "create table mybdtest.users (id bigint auto_increment primary key, name varchar(40) , lastName varchar(40) , age tinyint )";
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(sql);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -26,8 +24,6 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         String sql = "drop table if exists mybdtest.users";
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(sql);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -38,8 +34,6 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
             preparedStatement.setString(2, lastName);
             preparedStatement.setByte(3, age);
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
 
     }
@@ -49,8 +43,6 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -66,8 +58,6 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
                 user.setAge(resultSet.getByte("age"));
                 list.add(user);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
         return list;
     }
@@ -76,8 +66,6 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         String sql = "TRUNCATE TABLE mybdtest.users";
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(sql);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 }
