@@ -13,6 +13,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Util {
+    private Util() {
+    }
+
     // реализуйте настройку соеденения с БД
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/mybdtest";
@@ -29,6 +32,7 @@ public class Util {
             System.out.println("Connection is NOT OK");
         }
         return connection;
+
     }
     private static SessionFactory sessionFactory;
     public static SessionFactory getSessionFactory() {

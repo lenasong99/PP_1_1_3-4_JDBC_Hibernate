@@ -6,11 +6,12 @@ import org.hibernate.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jm.task.core.jdbc.util.Util.getSessionFactory;
 
-public class UserDaoHibernateImpl extends Util implements UserDao {
+
+public class UserDaoHibernateImpl implements UserDao {
 
     public UserDaoHibernateImpl() {
-
     }
     @Override
     public void createUsersTable() {
